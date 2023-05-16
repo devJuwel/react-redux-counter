@@ -1,6 +1,15 @@
 import { DECREMENT, INCREMENT, RESET } from "../constants/counterConstant";
 
-const getLocalCountData = () => localStorage.getItem("count");
+// const getLocalCountData = () => +localStorage.getItem("count");
+
+const getLocalCountData = () => {
+  const count = localStorage.getItem("count");
+  if (count === null) {
+    return 0;
+  } else {
+    return +count;
+  }
+};
 
 const initialState = {
   count: getLocalCountData(),
